@@ -3,17 +3,15 @@ var prices = document.getElementsByClassName('hl-item__displayPrice secondary-te
 
 var products = document.getElementsByClassName('hl-carousel__item hl-standard-carousel__item');
 
-
-document.head.insertAdjacentHTML("afterbegin", '<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">');
-
-
+var color = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "ten"];
 
 //console.log('images', images[0].src)
 for (var i = 0, l = products.length; i < l; i++) {
-
+    var r = Math.floor(Math.random()*100)
+    var c = Math.round(r/10)
 	//products[i].insertAdjacentHTML("beforeend", '<button id="myecoBtn" onclick="myFunction"><img src="https://thumbs.dreamstime.com/b/eco-friendly-percent-green-sticker-wavy-edge-design-element-packaging-design-promotional-material-eco-friendly-170367361.jpg" alt="eco_friendly" height="100" width="100"></img></button');
 	var button = document.createElement("button");
-	button.innerHTML = '<img src="https://thumbs.dreamstime.com/b/eco-friendly-percent-green-sticker-wavy-edge-design-element-packaging-design-promotional-material-eco-friendly-170367361.jpg" alt="eco_friendly" height="100" width="100"></img>';
+	button.innerHTML = ` <span class=${color[c]}>${r}</span>`;
 	var product = products[i];
 	product.appendChild(button);
 
@@ -43,7 +41,7 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-
+/*
 alert("querySomething1");
 function querySomething(){
 	alert("querySomething");
@@ -60,13 +58,13 @@ function querySomething(){
             "product_weight":"48lbs",
             "product_material":"aluminium"
 	}
-/*
+
 	$.post(Url, data, function(data, status){
 		console.log("post", data);
 	})
 
 
-*/ $.ajax({
+ $.ajax({
         type: "GET",
         url: "127.0.0.1",
         headers: {
@@ -82,7 +80,7 @@ function querySomething(){
             console.log(data);
         },
     });
-   /* $.ajax({
+    $.ajax({
         type: "POST",
         url: "127.20.10.10:8000/user_buy",
         headers: {
@@ -107,7 +105,7 @@ function querySomething(){
             console.log("failure");
             console.log(data);
         },
-    });*/
+    });
     alert('marcusShep function ran.')
 }
 
@@ -119,4 +117,4 @@ button.addEventListener("click", function(){
 	querySomething();
 	console.log("Post");
 });}
-
+*/
