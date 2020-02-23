@@ -66,6 +66,12 @@ button.addEventListener("click", function(){
 });
 }
 
+window.onclick = function(event) {
+    if ($(event.target.closest('a')).attr('class') == 'hl-item__link') {
+        $(event.target.closest('a')).attr('href')
+    }
+}
+
 
 
 
