@@ -4,7 +4,7 @@
   "name": "EcoBuy",
   "version": "0.1.0",
   "description": "EcoBuy Plug-in Extension",
-  "permissions": ["declarativeContent", "storage","http://www.ebay.com/*", "http://127.0.0.1:8000/*"],
+  "permissions": ["declarativeContent", "storage", "http://www.ebay.com/*", "http://127.0.0.1:8000/*"],
  
   "content_scripts": [{
     "css": ["styles.css"],

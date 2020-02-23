@@ -19,6 +19,7 @@ function getUserData(){
     userData = data
   })
 };
+getUserData();
 
 //console.log('images', images[0].src)
 for (var i = 0, l = products.length; i < l; i++) {

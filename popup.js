@@ -53,8 +53,8 @@ Chart.pluginService.register({
   }
 });
 
-var obj =JSON.parse('{"user": "david", "user_rate": "58.57142857142856", "products25": "7", "products50": "0", "products75": "0", "products100": "0"}');
-//var obj =JSON.parse(userData);
+// var obj =JSON.parse('{"user": "david", "user_rate": "58.57142857142856", "products25": "7", "products50": "0", "products75": "0", "products100": "0"}');
+var obj =JSON.parse(userData);
     var ctx = document.getElementById("mychart").getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'doughnut',
