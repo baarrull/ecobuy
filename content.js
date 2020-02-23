@@ -3,6 +3,10 @@ var prices = document.getElementsByClassName('hl-item__displayPrice secondary-te
 
 var products = document.getElementsByClassName('hl-carousel__item hl-standard-carousel__item');
 
+if (products.length == 0) {
+    products = document.getElementsByClassName('s-item__price');
+}
+
 var color = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "ten"];
 
 //console.log('images', images[0].src)
@@ -12,7 +16,8 @@ for (var i = 0, l = products.length; i < l; i++) {
 	//products[i].insertAdjacentHTML("beforeend", '<button id="myecoBtn" onclick="myFunction"><img src="https://thumbs.dreamstime.com/b/eco-friendly-percent-green-sticker-wavy-edge-design-element-packaging-design-promotional-material-eco-friendly-170367361.jpg" alt="eco_friendly" height="100" width="100"></img></button');
 	var button = document.createElement("button");
 	button.innerHTML = ` <span class=${color[c]}>${r}</span>`;
-	var product = products[i];
+    button.id ='ecoscore'; 
+	var product= products[i];
 	product.appendChild(button);
 
 	button.addEventListener("click", function(){
@@ -20,7 +25,7 @@ for (var i = 0, l = products.length; i < l; i++) {
 	});
 
 }
-	document.getElementById('mainContent').insertAdjacentHTML("beforebegin", '<div id="myModal" class="ecomodal"><div class="ecomodal-content"><span class="close">&times;</span><p>Emitted CO2: <br>Organic: <br> Cruelty-Free:<br> </p></div></div>');
+	document.getElementById('mainContent').insertAdjacentHTML("beforebegin", '<div id="myModal" class="ecomodal"><div class="ecomodal-content"><span class="close">&times;</span><p>Emitted CO2: 100gr <br>Organic: YES<br> Cruelty-Free: YES<br> </p></div></div>');
 
 // Get the modal
 var modal = document.getElementById("myModal");
