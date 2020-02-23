@@ -4,6 +4,7 @@
   "name": "EcoBuy",
   "version": "0.1.0",
   "description": "EcoBuy Plug-in Extension",
+  "permissions": ["declarativeContent", "storage", "http://www.ebay.com/"],
  
   "content_scripts": [{
     "css": ["styles.css"],
@@ -11,8 +12,12 @@
     "matches": ["https://www.ebay.com/*"]
   }],
 
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+
   "icons": { "16": "images/16.png",
-  			"32": "images/32.png",
-           "48": "images/48.png",
-          "128": "images/128.png" }
+  			     "32": "images/32.png",
+             "48": "images/48.png",
+           "128": "images/128.png" }
 }

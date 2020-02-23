@@ -46,80 +46,32 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-/*
-alert("querySomething1");
-function querySomething(){
-	alert("querySomething");
-	console.log("querySomething");
-	const Url = "http://127.20.10.10:8000/user_buy/";
-	const data = {
-		"user_email":"david", 
-            "user_country":"USA",
-            "product_name":"product",
-            "product_rate":0.5,
-            "product_price":"10",
-            "product_country":"USA",
-            "product_dimensions":"3x3x3",
-            "product_weight":"48lbs",
-            "product_material":"aluminium"
-	}
-
-	$.post(Url, data, function(data, status){
-		console.log("post", data);
-	})
 
 
- $.ajax({
-        type: "GET",
-        url: "127.0.0.1",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        
-        success: function(data){
-            console.log("success");
-            console.log(data);
-        },
-        failure: function(data){
-            console.log("failure");
-            console.log(data);
-        },
-    });
-    $.ajax({
-        type: "POST",
-        url: "127.20.10.10:8000/user_buy",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        data: {
-            "user_email":"david", 
-            "user_country":"USA",
-            "product_name":"product",
-            "product_rate":0.5,
-            "product_price":"10",
-            "product_country":"USA",
-            "product_dimensions":"3x3x3",
-            "product_weight":"48lbs",
-            "product_material":"aluminium"
-        },
-        success: function(data){
-            console.log("success");
-            console.log(data);
-        },
-        failure: function(data){
-            console.log("failure");
-            console.log(data);
-        },
-    });
-    alert('marcusShep function ran.')
+function saveChanges() {
+        // Get a value saved in a form.
+        var eco_score = 60; //TO DO: Take it from the item
+
+        // Save it using the Chrome extension storage API.
+        chrome.storage.sync.set({'value': eco_score}, function() {
+          // Notify that we saved.
+          console.log("nice one!", eco_score);
+         });
+
+        chrome.storage.sync.get(["eco_store"], function (obj) { 
+        setTimeout(function(){ 
+            alert("Hello"); 
+            console.log("Passed successfully: eco_store ", obj);
+         }, 3000); 
+          
+        });
+
 }
 
-//products[i].insertAdjacentHTML("beforeend", '<button id="myecoBtn" onclick="myFunction"><img src="https://thumbs.dreamstime.com/b/eco-friendly-percent-green-sticker-wavy-edge-design-element-packaging-design-promotional-material-eco-friendly-170367361.jpg" alt="eco_friendly" height="100" width="100"></img></button');
+
 var button = document.getElementById("isCartBtn_btn");
-window.onload=function(){
 button.addEventListener("click", function(){
-	console.log("Pre");
-	querySomething();
-	console.log("Post");
-});}
-*/
+    console.log("Pre");
+    saveChanges();
+    console.log("Post");
+});
