@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+ 
+  "name": "Modify CSS and HTML",
+  "version": "0.1.0",
+  "description": "EcoBuy Plug-in Extension",
+ 
+  "content_scripts": [{
+    "css": ["styles.css"],
+    "js": ["jquery-3.4.1.js","content.js"],
+    "matches": ["https://www.ebay.com/*"]
+  }]
+ 
+}
