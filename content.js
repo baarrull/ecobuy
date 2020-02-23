@@ -1,6 +1,5 @@
 var images = document.getElementsByTagName('img');
 var prices = document.getElementsByClassName('hl-item__displayPrice secondary-text');
-
 var products = document.getElementsByClassName('hl-carousel__item hl-standard-carousel__item');
 
 if (products.length == 0) {
@@ -8,6 +7,17 @@ if (products.length == 0) {
 }
 
 var color = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "ten"];
+
+var userData
+function getUserData(){
+	const Url = "http://127.0.0.1:8000/userData/";
+  const Sdata = '{"user_email":"david"}';
+	$.post(Url, Sdata, function(data){
+    userData = data
+  })
+};
+getUserData()
+
 
 //console.log('images', images[0].src)
 for (var i = 0, l = products.length; i < l; i++) {
@@ -25,7 +35,8 @@ for (var i = 0, l = products.length; i < l; i++) {
 	});
 
 }
-	document.getElementById('mainContent').insertAdjacentHTML("beforebegin", '<div id="myModal" class="ecomodal"><div class="ecomodal-content"><span class="close">&times;</span><p>Emitted CO2: 100gr <br>Organic: YES<br> Cruelty-Free: YES<br> </p></div></div>');
+  
+document.getElementById('mainContent').insertAdjacentHTML("beforebegin", '<div id="myModal" class="ecomodal"><div class="ecomodal-content"><span class="close">&times;</span><p>Emitted CO2: 100gr <br>Organic: YES<br> Cruelty-Free: YES<br> </p></div></div>');
 
 // Get the modal
 var modal = document.getElementById("myModal");
@@ -47,45 +58,12 @@ window.onclick = function(event) {
   }
 }
 
-
-function saveChanges() {
-        // Get a value saved in a form.
-        var eco_score = 60; //TO DO: Take it from the item
-
-        // Save it using the Chrome extension storage API.
-        chrome.storage.sync.set({'value': eco_score}, function() {
-          // Notify that we saved.
-          console.log("nice one!", eco_score);
-         });
-
-        chrome.storage.sync.get(["eco_store"], function (obj) { 
-        setTimeout(function(){ 
-            alert("Hello"); 
-            console.log("Passed successfully: eco_store ", obj);
-         }, 3000); 
-          
-        });
-
-}
-
-function querySomething(){
-	alert("querySomething");
-	console.log("querySomething");
-	const Url = "http://127.0.0.1:8000/user_buy/";
-  const data = '{"user_email":"siAixoFunciona","user_country":"USA", "product_name":"product","product_rate":0.5,"product_price":"10","product_country":"USA","product_dimensions":"3x3x3","product_weight":"48lbs","product_material":"aluminium"}';
-	$.post(Url, data, function(data, status){
-		console.log("post", data);
-	})
-}
-
 var button = document.getElementById("isCartBtn_btn");
+if(button != null){
 button.addEventListener("click", function(){
-    console.log("Pre");
-    saveChanges();
-    querySomething();
-    console.log("Post");
+    postUserBuy();
 });
-
+}
 
 
 
