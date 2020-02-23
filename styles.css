@@ -23,11 +23,14 @@ html,body {
 
 /* Modal Content */
 .ecomodal-content {
-  background-color: #fefefe;
+  background-color: rgb(173,255,47);
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
   width: 40%;
+  text-align: center;
+  color: brown;
+  font-weight: bold; 
 }
 
 
