@@ -68,10 +68,25 @@ function saveChanges() {
 
 }
 
+function querySomething(){
+	alert("querySomething");
+	console.log("querySomething");
+	const Url = "http://127.0.0.1:8000/user_buy/";
+  const data = '{"user_email":"siAixoFunciona","user_country":"USA", "product_name":"product","product_rate":0.5,"product_price":"10","product_country":"USA","product_dimensions":"3x3x3","product_weight":"48lbs","product_material":"aluminium"}';
+	$.post(Url, data, function(data, status){
+		console.log("post", data);
+	})
+}
 
 var button = document.getElementById("isCartBtn_btn");
 button.addEventListener("click", function(){
     console.log("Pre");
     saveChanges();
+    querySomething();
     console.log("Post");
 });
+
+
+
+
+
