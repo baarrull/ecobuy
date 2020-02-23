@@ -4,6 +4,9 @@ var products = document.getElementsByClassName('hl-carousel__item hl-standard-ca
 
 if (products.length == 0) {
     products = document.getElementsByClassName('s-item__price');
+    if (products.length == 0) {
+        products = document.getElementsByClassName('notranslate'); 
+    }
 }
 
 var color = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "ten"];
@@ -16,8 +19,6 @@ function getUserData(){
     userData = data
   })
 };
-getUserData()
-
 
 //console.log('images', images[0].src)
 for (var i = 0, l = products.length; i < l; i++) {
