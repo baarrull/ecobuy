@@ -78,7 +78,13 @@ button.addEventListener("click", function(){
 
 window.onclick = function(event) {
     if ($(event.target.closest('a')).attr('class') == 'hl-item__link') {
-        $(event.target.closest('a')).attr('href')
+        var product_url = $(event.target.closest('a')).attr('href')
+        console.log("url", product_url)
+        // const Url = "http://127.0.0.1:8000/productData/";
+        // const data = {"url":"test"};
+        // $.post(Url, data, function(data, status){
+        //   alert("data",data)
+        // })
     }
 }
 
