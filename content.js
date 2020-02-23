@@ -4,6 +4,9 @@ var products = document.getElementsByClassName('hl-carousel__item hl-standard-ca
 
 if (products.length == 0) {
     products = document.getElementsByClassName('s-item__price');
+    if (products.length == 0) {
+      products = document.getElementsByClassName('u-flL w29 vi-price');
+    }
 }
 
 var color = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "ten"];
@@ -56,6 +59,14 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
+}
+
+function postUserBuy(){
+	const Url = "http://127.0.0.1:8000/user_buy/";
+  const data = '{"user_email":"david","user_country":"USA", "product_name":"product","product_rate":50,"product_price":"10","product_country":"USA","product_dimensions":"3x3x3","product_weight":"48lbs","product_material":"aluminium"}';
+	$.post(Url, data, function(data, status){
+		console.log("post", data);
+	})
 }
 
 var button = document.getElementById("isCartBtn_btn");
