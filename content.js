@@ -10,7 +10,6 @@ if (products.length == 0) {
 }
 
 var color = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "ten"];
-var r = [34, 46, 98, 12, 76, 23, 34, 67, 21, 79, 24, 67, 97, 23, 34, 56, 78, 43, 23, 65, 34]
 
 var userData
 function getUserData(){
@@ -24,11 +23,11 @@ getUserData();
 
 //console.log('images', images[0].src)
 for (var i = 0, l = products.length; i < l; i++) {
-    //var r = Math.floor(Math.random()*100)
-    var c = Math.round(r[i]/10)
+    var r = Math.floor(Math.random()*100)
+    var c = Math.round(r/10)
 	//products[i].insertAdjacentHTML("beforeend", '<button id="myecoBtn" onclick="myFunction"><img src="https://thumbs.dreamstime.com/b/eco-friendly-percent-green-sticker-wavy-edge-design-element-packaging-design-promotional-material-eco-friendly-170367361.jpg" alt="eco_friendly" height="100" width="100"></img></button');
 	var button = document.createElement("button");
-	button.innerHTML = ` <span class=${color[c]}>${r[i]}</span>`;
+	button.innerHTML = ` <span class=${color[c]}>${r}</span>`;
     button.id ='ecoscore'; 
 	var product= products[i];
 	product.appendChild(button);
@@ -38,8 +37,10 @@ for (var i = 0, l = products.length; i < l; i++) {
 	});
 
 }
-  
-document.getElementById('mainContent').insertAdjacentHTML("beforebegin", '<div id="myModal" class="ecomodal"><div class="ecomodal-content"><span class="close">&times;</span><h2>Product footprint:</h2><p>Origin: China</p><p>Distance to you: 11000km</p><p>Emitted CO2: 0.8t CO2 </p><p> Cruelty-Free: YES<br> </p></div></div>');
+
+var countries = ["China", "USA", "Canada", "Spain", "France", "Italy", "Switzerland"]
+var r = Math.abs(Math.random()*7)
+document.getElementById('mainContent').insertAdjacentHTML("beforebegin", `<div id="myModal" class="ecomodal"><div class="ecomodal-content"><span class="close">&times;</span><h2>Product footprint:</h2><p>Origin: China</p><p>Distance to you: 3500km</p><p>Emitted CO2: 0.4t CO2 </p><p> Cruelty-Free: YES<br> </p></div></div>`);
 
 // Get the modal
 var modal = document.getElementById("myModal");
